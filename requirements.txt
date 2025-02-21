@@ -1,0 +1,7 @@
+Flask[async]
+python-dotenv
+litellm
+sendgrid
+httpx
+certifi
+Gunicorn

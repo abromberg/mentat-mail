@@ -1,0 +1,36 @@
+# Exported from Render on 2025-02-21T17:16:27Z
+services:
+- type: web
+  name: mentat-mail
+  runtime: python
+  repo: https://github.com/abromberg/mentat-mail
+  plan: free
+  envVars:
+  - key: WHITELISTED_EMAILS
+    sync: false
+  - key: SYSTEM_PROMPT
+    sync: false
+  - key: MODEL_ALIASES
+    sync: false
+  - key: FLASK_DEBUG
+    sync: false
+  - key: FLASK_ENV
+    sync: false
+  - key: SENDGRID_API_KEY
+    sync: false
+  - key: DEFAULT_MODEL_SLUG
+    sync: false
+  - key: DEFAULT_PROVIDER
+    sync: false
+  - key: PERPLEXITY_API_KEY
+    sync: false
+  - key: GEMINI_API_KEY
+    sync: false
+  - key: ANTHROPIC_API_KEY
+    sync: false
+  - key: OPENAI_API_KEY
+    sync: false
+  region: oregon
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn app:app
+version: "1"

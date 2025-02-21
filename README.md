@@ -34,9 +34,9 @@ You should be able to deploy this yourself for free (as of February 2025), only 
 
 1. Click this button to deploy to Render (or, of course, you can clone and deploy to your own server or locally):
 
-(I have no affiliation with Render, I've just found it easy to deploy on and the free tier terms work for this project.)
+   (I have no affiliation with Render, I've just found it easy to deploy on and the free tier terms work for this project.)
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/abromberg/mentat-mail)
+   [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/abromberg/mentat-mail)
 
 2. Sign up for a SendGrid account. You'll need to take three steps:
    - [verify your domain](https://app.sendgrid.com/settings/sender_auth/domains) for sending. You can either use a single-purpose standalone domain, or a subdomain of one of your existing domains. For example, I used `agent.andybromberg.com`. SendGrid will walk you through adding the necessary DNS records.

@@ -1,5 +1,7 @@
 # Mentat Mail: Email as an interface to AI
 
+![Mentat Mail header](https://andybromberg.com/assets/images/generated/mentat-mail/header-1000-28796efb8.webp)
+
 [Mentat Mail](https://mentatmail.com) lets you send emails to LLM APIs and receive their responses in your inbox. For most use cases, I prefer it to using ChatGPT or Claude's interfaces. See this [blog post](https://andybromberg.com/mentat-mail/) for some usage examples.
 
 Especially with the rise of test-time compute / chain-of-thought models, I don't want to sit around in those interfaces waiting for a response. Email is a much nicer interface, and I'm in there all day already. 
@@ -24,6 +26,36 @@ Right now, you'll need to deploy Mentat Mail yourself — it's pretty simple. If
 
 If you want to read more about the project, you can check out [the blog post](https://andybromberg.com/mentat-mail/).
 
+## Examples
+
+### Chatting with long-running models
+
+Here I am making a request to OpenAI’s o1 model, which can take awhile. I can drop an email, walk away, and when I come back the response is in my inbox:
+
+![o1-space](https://andybromberg.com/assets/images/generated/mentat-mail/o1-space-1000-4ad6c0668.webp)
+
+It also processes multiple requests concurrently, so you can make an o1 request, then fire off some faster requests (e.g. GPT-4o mini or Claude) while the first one is running running.
+
+### Image processing
+
+I can attach an image to the email and the AI will parse it:
+
+![gemini-image](https://andybromberg.com/assets/images/generated/mentat-mail/gemini-image-1000-9f8e9c104.webp)
+
+### Referencing the thread
+
+I can loop the AI on an existing thread and have it use the prior context to answer a question:
+
+![claude-moon](https://andybromberg.com/assets/images/generated/mentat-mail/claude-moon-1000-174960b5a.webp)
+
+(Or I can forward the thread to an agent and it’ll reply just to me.)
+
+### Agent-on-agent
+
+I can set up two agents to play off each other, both responding on the thread:
+
+![perplexity-eagles](https://andybromberg.com/assets/images/generated/mentat-mail/perplexity-eagles-1000-7685c7920.webp)
+
 ## Setup
 
 You should be able to deploy this yourself for free (as of February 2025), only paying for your usage of your preferred LLM API(s). 
@@ -34,9 +66,9 @@ You should be able to deploy this yourself for free (as of February 2025), only 
 
 1. Click this button to deploy to Render (or, of course, you can clone and deploy to your own server or locally):
 
-   (I have no affiliation with Render, I've just found it easy to deploy on and the free tier terms work for this project.)
-
    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/abromberg/mentat-mail)
+
+   (I have no affiliation with Render, I've just found it easy to deploy on and the free tier terms work for this project.)
 
 2. Sign up for a SendGrid account. You'll need to take three steps:
    - [verify your domain](https://app.sendgrid.com/settings/sender_auth/domains) for sending. You can either use a single-purpose standalone domain, or a subdomain of one of your existing domains. For example, I used `agent.andybromberg.com`. SendGrid will walk you through adding the necessary DNS records.

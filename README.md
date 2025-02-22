@@ -2,7 +2,7 @@
 
 ![Mentat Mail header](https://andybromberg.com/assets/images/generated/mentat-mail/header-1228-50860c42d.webp)
 
-[Mentat Mail](https://mentatmail.com) lets you send emails to LLM APIs and receive their responses in your inbox. For most use cases, I prefer it to using ChatGPT or Claude's interfaces. See this [blog post](https://andybromberg.com/mentat-mail/) for some usage examples.
+[Mentat Mail](https://mentatmail.com) lets you send emails to LLM APIs and receive their responses in your inbox. For most use cases, I prefer it to using ChatGPT or Claude's interfaces. See below for some usage examples, or check out [this blog post](https://andybromberg.com/mentat-mail) for more.
 
 Especially with the rise of test-time compute / chain-of-thought models, I don't want to sit around in those interfaces waiting for a response. Email is a much nicer interface, and I'm in there all day already. 
 
@@ -24,7 +24,7 @@ Right now, you'll need to deploy Mentat Mail yourself — it's pretty simple. If
 > [!WARNING]
 > Mentat Mail is currently a hack project. I don't make any guarantees about its stability, security, or robustness. Use at your own risk!
 
-If you want to read more about the project, you can check out [the blog post](https://andybromberg.com/mentat-mail/).
+If you want to read more about the project, you can check out [the blog post](https://andybromberg.com/mentat-mail).
 
 ## Examples
 
@@ -78,8 +78,8 @@ You should be able to deploy this yourself for free (as of February 2025), only 
 3. Sign up for whatever LLM API you want to use — right now, Mentat Mail supports OpenAI, Anthropic, Perplexity, and Google Gemini, although you could trivially add any others that are supported by [LiteLLM](https://www.litellm.ai/). Get an API key from the LLM provider.
 
 4. Go into your Render project settings and set the environment variables — the API key(s) for your LLM provider(s) the SendGrid API key. There are three env variables that need a little more explanation:
-   - `WHITELISTED_EMAILS` should include the email address you want your AI agents to accept requests from. You can also include a wildcard, like `*@yourdomain.com` or `*`. Any email address that is not whitelisted will be rejected, which means that other people can't send emails to your AI agents (costing you money). Note: I recommend adding your agent email domain (e.g. `*agent.andybromberg.com`) — this way, your agents can talk to each other if relevant.
-   - `MODEL_ALIASES` is a JSON string that maps aliases to models. This is optional, and allows you to set a custom email address for your agent and have it respond to a specific model. For example, say you wanted `jeeves@yourdomain.com` to respond to the `openai/gpt-4o-mini` model. You could set `MODEL_ALIASES` to `{"jeeves": {"model": "openai/gpt-4o-mini", "name": "Jeeves", "provider": "openai"}}`.
+   - `WHITELISTED_EMAILS` should include the email address you want your AI agents to accept requests from. You can also include a wildcard, like `*@yourdomain.com` or `*`. Any email address that is not whitelisted will be rejected, which means that other people can't send emails to your AI agents (costing you money). Note: I recommend adding your agent email domain (e.g. `*@agent.andybromberg.com`) — this way, your agents can talk to each other if relevant.
+   - `MODEL_ALIASES` is a JSON string that maps aliases to models. This is optional, and allows you to set a custom email address for your agent and have it respond as a specific model. For example, say you wanted `jeeves@yourdomain.com` to respond to the `openai/gpt-4o-mini` model. You could set `MODEL_ALIASES` to `{"jeeves": {"model": "openai/gpt-4o-mini", "name": "Jeeves", "provider": "openai"}}`.
    - `SYSTEM_PROMPT` is a string that will be added to the system prompt of your agent. This is optional, but can be useful if you want to set a specific behavior for your agent. The default one works fine, but I have customized mine quite a bit. This works like "custom instructions" in AI sites/apps.
 
 5. Redeploy on Render with those new environment variables, and you should be good to go! Just send an email from a whitelisted email address to `gpt4omini@yourdomain.com` and it should reply! Or you can send to `o1@`, `o3mini@`, `claude@`, `geminiflash@`, `sonarpro@` (Perplexity), and more (as long as you have the correct API key in your env). It will automatically dispatch the request to the corresponding model.

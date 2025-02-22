@@ -149,23 +149,24 @@ async def send_email_response(ai_response, text_content, from_email, to_email, s
     quoted_text = format_quoted_text(text_content, from_email)
     full_response = clean_response + quoted_text
     
-    to_emails = [extract_email(email) for email in to_email.split(',') if email.strip()]
+    to_emails = [extract_email(email) for email in to_email.split(',') 
+                 if email.strip() and extract_email(email).lower() != clean_to_email.lower()]
     if isinstance(cc_addresses, str):
-        cc_emails = [extract_email(addr.strip()) for addr in cc_addresses.split(',') if addr.strip()]
+        cc_emails = [extract_email(addr.strip()) for addr in cc_addresses.split(',') 
+                    if addr.strip() and extract_email(addr).lower() != clean_to_email.lower()]
     else:
-        cc_emails = [extract_email(addr) for addr in cc_addresses if addr.strip()]
+        cc_emails = [extract_email(addr) for addr in cc_addresses 
+                    if addr.strip() and extract_email(addr).lower() != clean_to_email.lower()]
     
-    all_addresses = to_emails + cc_emails
-    if extract_email(from_email) not in all_addresses:
-        all_addresses = [extract_email(from_email)] + all_addresses
-    all_addresses = [email for email in all_addresses if email.lower() != clean_to_email.lower()]
+    if extract_email(from_email).lower() != clean_to_email.lower() and extract_email(from_email) not in to_emails:
+        to_emails = [extract_email(from_email)] + to_emails
     
-    if not all_addresses:
+    if not to_emails:
         raise EmailProcessingError("No valid recipient email addresses", 400)
     
     email_data = {
         "personalizations": [{
-            "to": [{"email": email} for email in all_addresses],
+            "to": [{"email": email} for email in to_emails],
             "cc": [{"email": email} for email in cc_emails] if cc_emails else None
         }],
         "from": {

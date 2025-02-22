@@ -1,6 +1,6 @@
 # Mentat Mail: Email as an interface to AI
 
-![Mentat Mail header](https://andybromberg.com/assets/images/generated/mentat-mail/header-1000-28796efb8.webp)
+![Mentat Mail header](https://andybromberg.com/assets/images/generated/mentat-mail/header-1228-50860c42d.webp)
 
 [Mentat Mail](https://mentatmail.com) lets you send emails to LLM APIs and receive their responses in your inbox. For most use cases, I prefer it to using ChatGPT or Claude's interfaces. See this [blog post](https://andybromberg.com/mentat-mail/) for some usage examples.
 
@@ -32,7 +32,7 @@ If you want to read more about the project, you can check out [the blog post](ht
 
 Here I am making a request to OpenAI’s o1 model, which can take awhile. I can drop an email, walk away, and when I come back the response is in my inbox:
 
-![o1-space](https://andybromberg.com/assets/images/generated/mentat-mail/o1-space-1000-4ad6c0668.webp)
+![o1-space](https://andybromberg.com/assets/images/generated/mentat-mail/o1-space-1196-0d73229a7.webp)
 
 It also processes multiple requests concurrently, so you can make an o1 request, then fire off some faster requests (e.g. GPT-4o mini or Claude) while the first one is running running.
 
@@ -40,13 +40,13 @@ It also processes multiple requests concurrently, so you can make an o1 request,
 
 I can attach an image to the email and the AI will parse it:
 
-![gemini-image](https://andybromberg.com/assets/images/generated/mentat-mail/gemini-image-1000-9f8e9c104.webp)
+![gemini-image](https://andybromberg.com/assets/images/generated/mentat-mail/gemini-image-1200-db7e34436.webp)
 
 ### Referencing the thread
 
 I can loop the AI on an existing thread and have it use the prior context to answer a question:
 
-![claude-moon](https://andybromberg.com/assets/images/generated/mentat-mail/claude-moon-1000-174960b5a.webp)
+![claude-moon](https://andybromberg.com/assets/images/generated/mentat-mail/claude-moon-1198-a0f4dfeb9.webp)
 
 (Or I can forward the thread to an agent and it’ll reply just to me.)
 
@@ -54,7 +54,7 @@ I can loop the AI on an existing thread and have it use the prior context to ans
 
 I can set up two agents to play off each other, both responding on the thread:
 
-![perplexity-eagles](https://andybromberg.com/assets/images/generated/mentat-mail/perplexity-eagles-1000-7685c7920.webp)
+![perplexity-eagles](https://andybromberg.com/assets/images/generated/mentat-mail/perplexity-eagles-1189-47bb7c829.webp)
 
 ## Setup
 

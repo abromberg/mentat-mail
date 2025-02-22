@@ -141,7 +141,7 @@ Aside from those specific and IMPORTANT instructions, here are general instructi
 async def send_email_response(ai_response, text_content, from_email, to_email, subject, message_id, references, model_name, clean_to_email, cc_addresses=''):
     sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
     
-    clean_subject = subject.strip() if subject else "No Subject"
+    clean_subject = subject.strip() if subject else ""
     reply_subject = f"Re: {clean_subject}" if not clean_subject.startswith('Re: ') else clean_subject
     
     sending_to_email = extract_email(from_email)
